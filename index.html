@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title> Difference between HTTP1.1 vs HTTP2 </title>
+        <h1>Difference between HTTP1.1 vs HTTP2</h1>
+        <h3>MAIN GOALS OF DEVELOPING HTTP2 WAS:</h3>
+</head>
+<body>
+    <ul>
+        <li>Negotiation Mechanism</li>
+    <li>Page Load Speed Improvements </li>
+    <li>Compression Of Request Headers</li>
+    <li>HTTP2 Server Push</li>
+     <li>Request Multiplexing Over a Single TCP Connection</li>
+     <li>Binary Protocol</li>
+      <li>Request Pipelining</li>
+     <li>High Level Compatibility with HTTP1.1</li>
+     <li>HOL blocking-Package Blocking</li>
+    </ul>
+
+    <h4>IMPACT PERFORMANCE:</h4>
+        <p>
+            <b>Multiplexing:</b>HTTP/1.1 loads resources one after the other, so if one resource cannot be loaded, it blocks all the other resources behind it. 
+            <br> contrast, HTTP/2 is able to use a single TCP connection to send multiple streams of data at once so that no one resource blocks any other resource.
+        </p>
+    <h4>Why is HTTP/2 faster than HTTP/1.1?:</h4>
+            <p>HTTP/2 is much faster and more efficient than HTTP/1.1. One of the ways in which HTTP/2 is faster is in how it prioritizes content during the loading process.</p>
+     
+    <h4>How does prioritization in HTTP/2 affect performance?</h4>
+        <p>In HTTP/2, developers have hands-on, detailed control over prioritization. This allows them to maximize perceived and actual page load speed to a degree that was not possible in HTTP/1.1.</p>
+        <p>HTTP/2 offers a feature called weighted prioritization. This allows developers to decide which page resources will load first, every time.In HTTP/2, when a client makes a request for a webpage, the server sends several streams of data to the client at once, instead of sending one thing after another. This method of data delivery is known as multiplexing. Developers can assign each of these data streams a different weighted value, and the value tells the client which data stream to render first.</p>
+    
+    <h4>Header compression:</h4> 
+        <p>Small files load more quickly than large ones. To speed up web performance, both HTTP/1.1 and HTTP/2 compress HTTP messages to make them smaller. However, HTTP/2 uses a more advanced compression method called HPACK that eliminates redundant information in HTTP header packets. This eliminates a few bytes from every HTTP packet. Given the volume of HTTP packets involved in loading even a single webpage, those bytes add up quickly, resulting in faster loading.</p>
+             <h5>HTTP2 HPACK COMPRESSION</h5>
+                    <img src="header http2.jpeg" width="350">
+    
+    <h4>BINARY PROTOCOL BENIFITS:</h4>
+       <ul>
+         <li>Effective network resource utilization </li>
+         <li>Lighter network footprint</li>
+         <li>Less prone to errors</li>
+         <li>Low overhead in parsing data- A critical value preposition in HTTP2 VS HTTP1</li>
+         <li>Enables other capabilities of the HTTP2 including Compression,Multiplexing, Prioritization,Flow control and Effective handling of TLS</li>
+       </ul>
+
+    <h4>HTTP2 SERVER PUSH:</h4>
+       <p>This capability allows the server to send additional cachable information to the client that is not requested but is anticipated in future requests. For example, if the client requests for the resource X and it is understood that the resource Y is referenced with the requisted file, the server can choose to push Y along with X instead of waiting for an appropriate client</p>
+       <img src="server push.png" width="500">
+    
+    <h4>DATA:</h4>
+       <h5>FOR HTTP 1.1: </h5>
+             <p>
+             <ul>
+                <li>Number of requests: 102</li>
+                <li>Load Time: 7.36s</li>
+                <li>Protocol: "HTTP 1.1"</li>
+             </ul>    
+             </p>
+
+        <h5>FOR HTTP 2:</h5>
+            <p>
+            <ul>
+               <li>Number of requests:102</li>
+               <li>Load Time: 12.97s</li>
+               <li>Protocol: "H2"</li>
+            </ul>
+            </p>
+
+        <h5>HTTP2 SERVER PUSH:</h5>
+            <p>
+            <ul>
+                <li>Number of requests:102</li>
+                <li>Load Time: 3.17s</li>
+                <li>Protocol: "H2"</li>
+            </ul>
+
+            </p>
+
+        <h4>HTTP 1.1 VS HTTP2</h4>   
+                <img src="TCP.png" width="600">
+    
+    </body>
+
+
+</html>
